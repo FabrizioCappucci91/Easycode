@@ -100,8 +100,6 @@ public class Utils {
   }
 
   public static List<Animale> mostLess(List<Animale> animali, String comparatore) {
-    Animale max = null;
-    Animale min = null;
     ArrayList<Animale> animales=new ArrayList<>();
     animali.forEach(a->animales.add(a));
     if (animali.size() > 1) {
