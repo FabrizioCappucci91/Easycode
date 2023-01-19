@@ -35,7 +35,7 @@ public class GameController {
       }
       else if (command.startsWith(COMMAND_DROP)) {
         String itemName=command.length()>COMMAND_DROP.length()+1?command.substring(COMMAND_DROP.length()+1): COMMAND_NOT_COMPLETE;
-        gameService.dropCommand(itemName,command,player,currentRoom);
+        gameService.dropCommand(itemName,player,currentRoom);
       }
       else if (command.startsWith(COMMAND_LOOK)) {
         Utils.print(gameService.lookCommand(currentRoom));

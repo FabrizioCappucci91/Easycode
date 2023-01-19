@@ -1,7 +1,6 @@
 package com.utils;
 
 import com.game.model.Item;
-import com.game.model.Player;
 import com.map.Direction;
 import com.map.Room;
 
@@ -57,5 +56,9 @@ public class UtilsGame {
     adjRooms.put(Direction.EAST,east);
     adjRooms.put(Direction.WEST,west);
     room.setAdjoiningRooms(adjRooms);
+    north.setAdjoiningRooms(adjRooms);
+    south.setAdjoiningRooms(adjRooms);
+    east.setAdjoiningRooms(adjRooms);
+    west.setAdjoiningRooms(adjRooms);
   }
 }

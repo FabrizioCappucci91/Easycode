@@ -41,7 +41,7 @@ public class GameService {
 
   }
 
-  public void dropCommand(String itemName,String command,Player player,Room currentRoom){
+  public void dropCommand(String itemName,Player player,Room currentRoom){
     if (itemName.equalsIgnoreCase(COMMAND_NOT_COMPLETE))
       Utils.print(COMMAND_NOT_COMPLETE);
     else {
@@ -59,6 +59,12 @@ public class GameService {
     StringBuilder listOfItems = new StringBuilder();
     animals.forEach(a -> listOfAnimals.append(a.getName()).append("(").append(a.getClass().getSimpleName()).append("),"));
     currentRoom.getItems().forEach((s, item) -> listOfItems.append(item.getName()).append(","));
+    if (!listOfAnimals.isEmpty()) {
+      listOfAnimals.deleteCharAt(listOfAnimals.length() - 1);
+    }
+    if (!listOfItems.isEmpty()) {
+      listOfItems.deleteCharAt(listOfItems.length() - 1);
+    }
     return "You are in " + currentRoom.getName() + ".\nItems: " + listOfItems + "\nNPC: " + listOfAnimals;
   }
 
