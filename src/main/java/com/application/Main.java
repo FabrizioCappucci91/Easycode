@@ -1,3 +1,5 @@
+package com.application;
+
 import com.game.GameController;
 import com.utils.Utils;
 

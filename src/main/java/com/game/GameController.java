@@ -11,9 +11,7 @@ import static com.utils.Constants.*;
 public class GameController {
 
   private Room currentRoom=new Room("Main room");
-  private Player player;
-
-  public GameController(){}
+  private final Player player=new Player("Player1");
 
   public void runGame() {
     GameService gameService= new GameService();
@@ -21,7 +19,7 @@ public class GameController {
     UtilsGame.fillGame(currentRoom);
     System.out.print("Insert player's name: ");
     String playerName = InputController.readString();
-    player = new Player(playerName);
+    player.setName(playerName);
     while(!gameEnded) {
       Utils.print(playerName +" Where are you going to go?");
       Utils.print("Available commands: go<direction>(ex. go north)  look   bag   get<item>   drop<item>");

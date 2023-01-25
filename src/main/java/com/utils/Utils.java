@@ -10,10 +10,11 @@ import java.util.*;
 
 public class Utils {
 
+  private Utils(){}
   public static List<Animal> loadZoo(){
-    Animal animal1=new Tiger("Tiger1","pasta",3,LocalDate.now(),120d,96d,35d);
-    Animal animal2=new Tiger("Tiger2","carne",2,LocalDate.now(),110d,99d,32d);
-    Animal animal3=new Tiger("Tiger3","verdura",4,LocalDate.now(),125d,102d,28d);
+    Tiger animal1=new Tiger("Tiger1","pasta",3,LocalDate.now(),120d,96d,35d);
+    Tiger animal2=new Tiger("Tiger2","carne",2,LocalDate.now(),110d,99d,32d);
+    Tiger animal3=new Tiger("Tiger3","verdura",4,LocalDate.now(),125d,102d,28d);
     Animal animal4=new Lion("Lion1","caramelle",3,LocalDate.now(),129d,88d,42d);
     Animal animal5=new Lion("Lion2","cioccolata",6,LocalDate.now(),140d,89d,43d);
     Animal animal6=new Lion("Lion3","banana",5,LocalDate.now(),100d,98d,29d);

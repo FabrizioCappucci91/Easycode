@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UtilsGame {
+  private UtilsGame(){}
   public static void fillGame(Room room ){
     room.setName("Main room");
     room.setAnimals(Utils.loadZoo());
@@ -50,7 +51,7 @@ public class UtilsGame {
     itemsWest.put(item9.getName(),item9);
     itemsWest.put(item10.getName(),item10);
     west.setItems(itemsWest);
-    EnumMap<Direction,Room> adjRooms=new EnumMap(Direction.class);
+    EnumMap<Direction,Room> adjRooms=new EnumMap<>(Direction.class);
     adjRooms.put(Direction.NORTH,north);
     adjRooms.put(Direction.SOUTH,south);
     adjRooms.put(Direction.EAST,east);

@@ -1,6 +1,7 @@
 package com.utils;
 
 public class Constants {
+  private Constants(){}
   public static final String COMMAND_GO="go";
   public static final String COMMAND_DROP="drop";
   public static final String COMMAND_GET="get";

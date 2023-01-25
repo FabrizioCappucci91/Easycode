@@ -5,7 +5,6 @@ import com.animals.model.AnimalWithTail;
 import com.animals.model.AnimalWithWings;
 
 import java.util.*;
-
 public class ZooController {
 
   private Map<Class<? extends Animal>,List<Animal>> animals;
