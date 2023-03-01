@@ -7,7 +7,7 @@ import java.util.*;
 @EqualsAndHashCode
 @ToString
 public class Bag {
-  private Map<String,Item> items;
+  private final Map<String,Item> items;
   private static final Integer MAX_SLOTS =10;
   private int availableSlots;
 

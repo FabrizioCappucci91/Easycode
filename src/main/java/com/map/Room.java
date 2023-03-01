@@ -3,11 +3,15 @@ package com.map;
 
 import com.animals.model.Animal;
 import com.game.model.Item;
-import lombok.Data;
+import lombok.*;
 
 import java.util.*;
-@Data
+@EqualsAndHashCode
+@ToString
 public class Room {
+  @Getter
+  @Setter
+  @NonNull
   private String name;
   private List<Animal> animals;
   private Map<String,Item> items;

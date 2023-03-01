@@ -1,15 +1,21 @@
 package com.game.model;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.util.Map;
 @EqualsAndHashCode
 @ToString
 public class Player {
+  @Getter
+  @Setter
   private String name;
+  @Getter
+  @Setter
   private Integer lifePoints;
-  private Bag bag;
+  private final Bag bag;
 
   public Player(String name){
     this.name=name;
@@ -34,20 +40,4 @@ public class Player {
     }
     return null;
   }
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Integer getLifePoints() {
-    return lifePoints;
-  }
-
-  public void setLifePoints(Integer lifePoints) {
-    this.lifePoints = lifePoints;
-  }
-
 }
