@@ -16,13 +16,14 @@ public class GameService {
   public Room goCommand(Room currentRoom,String command){
     String direction=command.length()>COMMAND_GO.length()+1?command.substring(COMMAND_GO.length()+1): COMMAND_NOT_COMPLETE;
 
-    if (direction.equalsIgnoreCase(COMMAND_NOT_COMPLETE))
+    if (direction.equalsIgnoreCase(COMMAND_NOT_COMPLETE)){
       Utils.print(COMMAND_NOT_COMPLETE);
-
-    else if(currentRoom.getAdjoiningRooms().containsKey(Direction.of(direction))){
-      currentRoom=currentRoom.getAdjoiningRooms().get(Direction.of(direction));
+    }
+    else if(currentRoom.goAdjoiningRoom(Direction.of(direction))!=null){
+      currentRoom=currentRoom.goAdjoiningRoom(Direction.of(direction));
       return currentRoom;
     }
+
     else Utils.print(NO_ROOM_PRESENT);
     return null;
   }
@@ -33,9 +34,11 @@ public class GameService {
     if (itemName.equalsIgnoreCase(COMMAND_NOT_COMPLETE))
       Utils.print(COMMAND_NOT_COMPLETE);
 
-    else if(currentRoom.getItems().containsKey(itemName)){
+    else if(currentRoom.containsItem(itemName)){
 
-      if(player.addItemInBag(currentRoom.getItems().remove(itemName))!=null) Utils.print(NO_PLACE_AVAILABLE);
+      if(player.addItemInBag(currentRoom.removeItem(itemName))!=null){
+        Utils.print(NO_PLACE_AVAILABLE);
+      }
 
     }else Utils.print(ITEM_NOT_FOUND);
 
@@ -47,23 +50,20 @@ public class GameService {
     else {
       Item item=player.removeItemFromBag(itemName);
       if (item!=null){
-        currentRoom.getItems().put(itemName,item);
+        currentRoom.addItem(item);
       }
       else Utils.print(ITEM_NOT_FOUND);
     }
   }
 
   public String lookCommand(Room currentRoom){
-    List<Animal> animals = currentRoom.getAnimals();
-    StringBuilder listOfAnimals = new StringBuilder();
-    StringBuilder listOfItems = new StringBuilder();
-    animals.forEach(a -> listOfAnimals.append(a.getName()).append("(").append(a.getClass().getSimpleName()).append("),"));
-    currentRoom.getItems().forEach((s, item) -> listOfItems.append(item.getName()).append(","));
+    String listOfAnimals=currentRoom.showAnimals();
+    String listOfItems=currentRoom.showItems();
     if (!listOfAnimals.isEmpty()) {
-      listOfAnimals.deleteCharAt(listOfAnimals.length() - 1);
+      listOfAnimals=listOfAnimals.substring(1,listOfAnimals.length() - 1);
     }
     if (!listOfItems.isEmpty()) {
-      listOfItems.deleteCharAt(listOfItems.length() - 1);
+      listOfItems=listOfItems.substring(1,listOfItems.length() - 1);
     }
     return "You are in " + currentRoom.getName() + ".\nItems: " + listOfItems + "\nNPC: " + listOfAnimals;
   }

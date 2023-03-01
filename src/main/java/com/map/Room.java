@@ -13,8 +13,11 @@ public class Room {
   @Setter
   @NonNull
   private String name;
+  @Setter
   private List<Animal> animals;
+  @Setter
   private Map<String,Item> items;
+  @Setter
   private EnumMap<Direction,Room> adjoiningRooms;
 
   public Room(String name){
@@ -24,6 +27,9 @@ public class Room {
     this.adjoiningRooms = new EnumMap<>(Direction.class);
   }
 
+  public Room goAdjoiningRoom(Direction direction){
+    return this.adjoiningRooms.get(direction);
+  }
   public Animal addAnimal(Animal animal) {
     animals.add(animal);
     return animal;
@@ -53,8 +59,14 @@ public class Room {
   public void removeAllItems() {
     items.clear();
   }
-  public boolean containsItem(Item item) {
-    return items.containsKey(item.getName());
+  public boolean containsItem(String itemName) {
+    return items.containsKey(itemName);
+  }
+  public String showAnimals(){
+    return animals.toString();
+  }
+  public String showItems(){
+    return items.toString();
   }
 
 }
