@@ -1,8 +1,9 @@
-package com.utils;
+package com.pawtropolis.utils;
 
 public class Constants {
   private Constants(){}
   public static final String COMMAND_GO="go";
+  public static final String COMMAND_CHANGE="changeName";
   public static final String COMMAND_DROP="drop";
   public static final String COMMAND_GET="get";
   public static final String COMMAND_LOOK="look";

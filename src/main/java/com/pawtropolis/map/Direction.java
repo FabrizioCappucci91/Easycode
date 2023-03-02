@@ -1,4 +1,4 @@
-package com.map;
+package com.pawtropolis.map;
 
 import java.util.Arrays;
 

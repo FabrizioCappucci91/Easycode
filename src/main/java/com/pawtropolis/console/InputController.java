@@ -1,4 +1,4 @@
-package com.console;
+package com.pawtropolis.console;
 
 import java.io.BufferedReader;
 import java.io.IOException;

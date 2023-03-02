@@ -1,4 +1,4 @@
-package com.game.model;
+package com.pawtropolis.game.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

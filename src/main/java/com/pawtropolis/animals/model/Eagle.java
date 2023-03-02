@@ -1,4 +1,4 @@
-package com.animals.model;
+package com.pawtropolis.animals.model;
 
 import lombok.*;
 

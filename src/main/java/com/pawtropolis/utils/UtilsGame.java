@@ -1,8 +1,8 @@
-package com.utils;
+package com.pawtropolis.utils;
 
-import com.game.model.Item;
-import com.map.Direction;
-import com.map.Room;
+import com.pawtropolis.game.model.Item;
+import com.pawtropolis.map.Direction;
+import com.pawtropolis.map.Room;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class UtilsGame {
   private UtilsGame(){}
-  public static void fillGame(Room room ){
+  public static void fillGame(Room room){
     room.setName("Main room");
     room.setAnimals(Utils.loadZoo());
     Item item1=new Item("item1","itemDiValore",2);

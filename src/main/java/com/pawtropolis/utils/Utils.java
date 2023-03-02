@@ -1,9 +1,9 @@
-package com.utils;
+package com.pawtropolis.utils;
 
-import com.animals.model.Animal;
-import com.animals.model.Eagle;
-import com.animals.model.Lion;
-import com.animals.model.Tiger;
+import com.pawtropolis.animals.model.Animal;
+import com.pawtropolis.animals.model.Eagle;
+import com.pawtropolis.animals.model.Lion;
+import com.pawtropolis.animals.model.Tiger;
 
 import java.time.LocalDate;
 import java.util.*;

@@ -1,8 +1,8 @@
-package com.map;
+package com.pawtropolis.map;
 
 
-import com.animals.model.Animal;
-import com.game.model.Item;
+import com.pawtropolis.animals.model.Animal;
+import com.pawtropolis.game.model.Item;
 import lombok.*;
 
 import java.util.*;

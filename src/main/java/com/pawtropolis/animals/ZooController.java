@@ -1,8 +1,8 @@
-package com.animals;
+package com.pawtropolis.animals;
 
-import com.animals.model.Animal;
-import com.animals.model.AnimalWithTail;
-import com.animals.model.AnimalWithWings;
+import com.pawtropolis.animals.model.Animal;
+import com.pawtropolis.animals.model.AnimalWithTail;
+import com.pawtropolis.animals.model.AnimalWithWings;
 
 import java.util.*;
 public class ZooController {
