@@ -63,10 +63,15 @@ public class Room {
     return items.containsKey(itemName);
   }
   public String showAnimals(){
-    return animals.toString();
+    List<String> info=animals.stream().map(Animal::getName).toList();
+    return info.toString();
   }
   public String showItems(){
-    return items.toString();
+    List<String> info=new ArrayList<>();
+    for (Item i:items.values()){
+      info.add("Name: "+i.getName()+" Description: "+i.getDescription()+" Required slots: "+i.getRequiredSlots());
+    }
+    return info.toString();
   }
 
 }

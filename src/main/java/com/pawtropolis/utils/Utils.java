@@ -4,10 +4,11 @@ import com.pawtropolis.animals.model.Animal;
 import com.pawtropolis.animals.model.Eagle;
 import com.pawtropolis.animals.model.Lion;
 import com.pawtropolis.animals.model.Tiger;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
 import java.util.*;
-
+@Slf4j
 public class Utils {
 
   private Utils(){}
@@ -35,7 +36,7 @@ public class Utils {
   }
 
   public static void print(String stringa) {
-    System.out.println(stringa);
+    log.info(stringa);
   }
 
 }

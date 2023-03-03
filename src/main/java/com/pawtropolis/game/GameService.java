@@ -6,10 +6,12 @@ import com.pawtropolis.map.Direction;
 import com.pawtropolis.map.Room;
 import com.pawtropolis.utils.Utils;
 import com.pawtropolis.utils.UtilsGame;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.pawtropolis.utils.Constants.*;
+@Slf4j
 @Service
 public class GameService {
 
@@ -20,6 +22,12 @@ public class GameService {
   private GameService(Room currentRoom, Player player){
     this.currentRoom = currentRoom;
     this.player=player;
+  }
+
+  public void showCommands(){
+    Utils.print(player.getName() +",What do you want to do?");
+    Utils.print("Available commands: go<direction>(ex. go north)  look   bag   get<item>   drop<item>  changeName<name>  exit");
+    log.info(">");
   }
 
   public String setPlayerName(String command){
@@ -80,7 +88,7 @@ public class GameService {
     if (!listOfItems.isEmpty()) {
       listOfItems=listOfItems.substring(1,listOfItems.length() - 1);
     }
-    return "You are in " + currentRoom.getName() + ".\nItems: " + listOfItems + "\nNPC: " + listOfAnimals;
+    return "You are in " + currentRoom.getName() + ".\nItems: [" + listOfItems + "]\nNPC: " + listOfAnimals;
   }
 
   public String bagCommand(){

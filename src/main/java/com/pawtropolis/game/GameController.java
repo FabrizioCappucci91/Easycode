@@ -18,11 +18,8 @@ public class GameController {
     Utils.print("Welcome to Pawtropolis.");
     boolean gameEnded = false;
     gameService.fillGame();
-
     while(!gameEnded) {
-      Utils.print(" Where are you going to go?");
-      Utils.print("Available commands: go<direction>(ex. go north)  look   bag   get<item>   drop<item>  changeName<name>");
-      System.out.print(">");
+      gameService.showCommands();
       String command=InputController.readString();
       if (command.startsWith(COMMAND_CHANGE)){
         String name=gameService.setPlayerName(command);
@@ -31,17 +28,17 @@ public class GameController {
       if (command.startsWith(COMMAND_GO)){
         gameService.goCommand(command);
       }
-      else if (command.startsWith(COMMAND_GET)){
+      if (command.startsWith(COMMAND_GET)){
         gameService.getCommand(command);
       }
-      else if (command.startsWith(COMMAND_DROP)) {
+      if (command.startsWith(COMMAND_DROP)) {
         String itemName=command.length()>COMMAND_DROP.length()+1?command.substring(COMMAND_DROP.length()+1): COMMAND_NOT_COMPLETE;
         gameService.dropCommand(itemName);
       }
-      else if (command.startsWith(COMMAND_LOOK)) {
+      if (command.startsWith(COMMAND_LOOK)) {
         Utils.print(gameService.lookCommand());
       }
-      else if (command.startsWith(COMMAND_BAG)) {
+      if (command.startsWith(COMMAND_BAG)) {
         Utils.print(gameService.bagCommand());
       }
       if (command.equalsIgnoreCase("exit")) {
