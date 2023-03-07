@@ -82,10 +82,10 @@ public class GameService {
   public String lookCommand(){
     String listOfAnimals=currentRoom.showAnimals();
     String listOfItems=currentRoom.showItems();
-    if (!listOfAnimals.isEmpty()) {
+    if (listOfAnimals!=null && !listOfAnimals.isEmpty()) {
       listOfAnimals=listOfAnimals.substring(1,listOfAnimals.length() - 1);
     }
-    if (!listOfItems.isEmpty()) {
+    if (listOfItems!=null && !listOfItems.isEmpty()) {
       listOfItems=listOfItems.substring(1,listOfItems.length() - 1);
     }
     return "You are in " + currentRoom.getName() + ".\nItems: [" + listOfItems + "]\nNPC: " + listOfAnimals;

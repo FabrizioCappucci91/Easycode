@@ -20,32 +20,28 @@ public class GameController {
     gameService.fillGame();
     while(!gameEnded) {
       gameService.showCommands();
-      String command=InputController.readString();
-      if (command.startsWith(COMMAND_CHANGE)){
-        String name=gameService.setPlayerName(command);
-        Utils.print("Name changed successfully, "+name);
-      }
-      if (command.startsWith(COMMAND_GO)){
-        gameService.goCommand(command);
-      }
-      if (command.startsWith(COMMAND_GET)){
-        gameService.getCommand(command);
-      }
-      if (command.startsWith(COMMAND_DROP)) {
-        String itemName=command.length()>COMMAND_DROP.length()+1?command.substring(COMMAND_DROP.length()+1): COMMAND_NOT_COMPLETE;
-        gameService.dropCommand(itemName);
-      }
-      if (command.startsWith(COMMAND_LOOK)) {
-        Utils.print(gameService.lookCommand());
-      }
-      if (command.startsWith(COMMAND_BAG)) {
-        Utils.print(gameService.bagCommand());
-      }
-      if (command.equalsIgnoreCase("exit")) {
-        gameEnded = true;
-        Utils.print("Bye bye");
+      String command = InputController.readString();
+      String[] commands = command.split(" ");
+      switch (commands[0]) {
+        case COMMAND_BAG -> Utils.print(gameService.bagCommand());
+        case COMMAND_CHANGE -> {
+          String name = gameService.setPlayerName(command);
+          Utils.print("Name changed successfully, " + name);
+        }
+        case COMMAND_DROP -> {
+          String itemName = command.length() > COMMAND_DROP.length() + 1 ? command.substring(COMMAND_DROP.length() + 1) : COMMAND_NOT_COMPLETE;
+          gameService.dropCommand(itemName);
+        }
+        case COMMAND_GET -> gameService.getCommand(command);
+        case COMMAND_GO -> gameService.goCommand(command);
+        case COMMAND_LOOK -> Utils.print(gameService.lookCommand());
+        case COMMAND_EXIT -> {
+          gameEnded = true;
+          Utils.print("Bye bye");
+        }
+        default -> Utils.print(COMMAND_NOT_COMPLETE);
       }
     }
+    System.exit(0);
   }
 }
-
