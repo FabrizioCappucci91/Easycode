@@ -1,62 +1,64 @@
 package com.pawtropolis.utils;
 
-import com.pawtropolis.game.model.Item;
-import com.pawtropolis.map.Direction;
-import com.pawtropolis.map.Room;
+import com.pawtropolis.dto.game.ItemDTO;
+import com.pawtropolis.enums.Direction;
+import com.pawtropolis.dto.map.RoomDTO;
+import org.springframework.stereotype.Component;
 
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
-
+@Component
 public class UtilsGame {
-  private UtilsGame(){}
-  public static void fillGame(Room room){
-    room.setName("Main room");
-    room.setAnimals(Utils.loadZoo());
-    Item item1=new Item("item1","itemDiValore",2);
-    Item item2=new Item("item2","itemDiValore2",3);
-    Map<String,Item> items=new HashMap<>();
-    items.put(item1.getName(),item1);
-    items.put(item2.getName(),item2);
-    room.setItems(items);
-    Room north= new Room("Room north");
+
+  private UtilsGame(){
+  }
+  public static void fillGame(RoomDTO roomDTO){
+    roomDTO.setAnimals(Utils.loadZoo());
+    ItemDTO itemDTO1 =new ItemDTO("item1","itemDiValore",2);
+    ItemDTO itemDTO2 =new ItemDTO("item2","itemDiValore2",3);
+    Map<String, ItemDTO> items=new HashMap<>();
+    items.put(itemDTO1.getName(), itemDTO1);
+    items.put(itemDTO2.getName(), itemDTO2);
+    roomDTO.setItems(items);
+    RoomDTO north= new RoomDTO("Room north");
     north.setAnimals(Utils.loadZoo());
-    Map<String,Item> itemsNorth=new HashMap<>();
-    Item item3=new Item("item3","itemDiValore3",2);
-    Item item4=new Item("item4","itemDiValore4",3);
-    itemsNorth.put(item3.getName(),item3);
-    itemsNorth.put(item4.getName(),item4);
+    Map<String, ItemDTO> itemsNorth=new HashMap<>();
+    ItemDTO itemDTO3 =new ItemDTO("item3","itemDiValore3",2);
+    ItemDTO itemDTO4 =new ItemDTO("item4","itemDiValore4",3);
+    itemsNorth.put(itemDTO3.getName(), itemDTO3);
+    itemsNorth.put(itemDTO4.getName(), itemDTO4);
     north.setItems(itemsNorth);
-    Room south= new Room("Room south");
+    RoomDTO south= new RoomDTO("Room south");
     south.setAnimals(Utils.loadZoo());
-    Map<String,Item> itemsSouth=new HashMap<>();
-    Item item5=new Item("item5","itemDiValore5",2);
-    Item item6=new Item("item6","itemDiValore6",3);
-    itemsSouth.put(item5.getName(),item5);
-    itemsSouth.put(item6.getName(),item6);
+    Map<String, ItemDTO> itemsSouth=new HashMap<>();
+    ItemDTO itemDTO5 =new ItemDTO("item5","itemDiValore5",2);
+    ItemDTO itemDTO6 =new ItemDTO("item6","itemDiValore6",3);
+    itemsSouth.put(itemDTO5.getName(), itemDTO5);
+    itemsSouth.put(itemDTO6.getName(), itemDTO6);
     south.setItems(itemsSouth);
-    Room east= new Room("Room east");
+    RoomDTO east= new RoomDTO("Room east");
     east.setAnimals(Utils.loadZoo());
-    Map<String,Item> itemsEast=new HashMap<>();
-    Item item7=new Item("item7","itemDiValore7",2);
-    Item item8=new Item("item8","itemDiValore8",3);
-    itemsEast.put(item7.getName(),item7);
-    itemsEast.put(item8.getName(),item8);
+    Map<String, ItemDTO> itemsEast=new HashMap<>();
+    ItemDTO itemDTO7 =new ItemDTO("item7","itemDiValore7",2);
+    ItemDTO itemDTO8 =new ItemDTO("item8","itemDiValore8",3);
+    itemsEast.put(itemDTO7.getName(), itemDTO7);
+    itemsEast.put(itemDTO8.getName(), itemDTO8);
     east.setItems(itemsEast);
-    Room west= new Room("Room west");
+    RoomDTO west= new RoomDTO("Room west");
     west.setAnimals(Utils.loadZoo());
-    Map<String,Item> itemsWest=new HashMap<>();
-    Item item9=new Item("item19","itemDiValore9",2);
-    Item item10=new Item("item10","itemDiValore10",3);
-    itemsWest.put(item9.getName(),item9);
-    itemsWest.put(item10.getName(),item10);
+    Map<String, ItemDTO> itemsWest=new HashMap<>();
+    ItemDTO itemDTO9 =new ItemDTO("item19","itemDiValore9",2);
+    ItemDTO itemDTO10 =new ItemDTO("item10","itemDiValore10",3);
+    itemsWest.put(itemDTO9.getName(), itemDTO9);
+    itemsWest.put(itemDTO10.getName(), itemDTO10);
     west.setItems(itemsWest);
-    EnumMap<Direction,Room> adjRooms=new EnumMap<>(Direction.class);
+    EnumMap<Direction,RoomDTO> adjRooms=new EnumMap<>(Direction.class);
     adjRooms.put(Direction.NORTH,north);
     adjRooms.put(Direction.SOUTH,south);
     adjRooms.put(Direction.EAST,east);
     adjRooms.put(Direction.WEST,west);
-    room.setAdjoiningRooms(adjRooms);
+    roomDTO.setAdjoiningRooms(adjRooms);
     north.setAdjoiningRooms(adjRooms);
     south.setAdjoiningRooms(adjRooms);
     east.setAdjoiningRooms(adjRooms);
