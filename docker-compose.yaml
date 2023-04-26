@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+        db:
+         image: postgres
+         container_name: container_postgres
+         ports:
+          - 6543:5432
+         environment:
+          POSTGRES_USER: fabbell
+          POSTGRES_PASSWORD: fabbell
+          POSTGRES_DB: pawtropolisdb
+         volumes:
+          - ./init.sql:/docker-entrypoint-initdb.d/init.sql
